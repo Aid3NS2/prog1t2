@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>To-Do</title>
+    <link rel='stylesheet' href='main.css'>
+    <script type="module" defer async>
+        import './main.js';
+    </script> 
+    
+    <!-- defer: faz esperar até terminar o html para executar o js
+     async: faz com q o navegador faça download de mais coisas ao mesmo tempo -->
+</head>
+<body>
+
+
+    <main>
+
+        <div class="adicionar">
+            <input type="text" placeholder="Digite uma tarefa abaixo.">
+            <button id="adicionar">Adicionar</button>
+        </div>
+
+
+        <div class="tarefas">
+            <template>
+                <div class="tarefa">
+                    <span>Exemplo de Tarefa</span>
+                    <button class="excluir">Excluir</button>
+                </div>
+            </template>
+        </div>
+
+
+    </main>
+    
+</body>
+</html>
+
+<!--    -- Extras/Anotações :
+template : faz um outro "conjunto" do html. bem autoexplicativo; "template"/"paradigma"
+span : tag geral para palavras;
+
+
+        -- fim de notes -->
