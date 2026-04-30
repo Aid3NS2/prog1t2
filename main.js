@@ -15,17 +15,19 @@ function criarTarefa(texto) {
     spanTitle.textContent = texto
     containerTarefas.appendChild(tarefa)
 
-    btnExcluir.onclick = () => btnExcluir.closest('.tarefa').remove()
-    }
+    btnExcluir.addEventListener('click'), () => btnExcluir.closest('tarefa'.remove())}
 
-// (correto) btnAdicionar.addEventListener('click', () => {}) , 
-// nao tempos a capacidade cerebral p isso nao (d acordo c prof)
-// portanto:
-btnAdicionar.onclick = function() {
+
+btnAdicionar.addEventListener('click', () => {
     const texto = inputAdicionar.value.trim()
     criarTarefa(texto)
     inputAdicionar.value = ''
-}
+})
+
+inputAdicionar.addEventListener('keypress', (evt) => {
+    if (evt.key !== 'Enter') return;
+    btnAdicionar.click()
+})
 
 
 /*   -- EXTRAS / ANOTAÇÕES -- 
@@ -41,6 +43,6 @@ pegue os fiote tbm
         mas isso aí é mto longo ent colocamos separados pra ficar mais
         organizado
 
-
+Event Listener permite com que mais de um evento aconteça, o onclick só dá um :thumbs_up:
     
         --  fim de notes -- */
