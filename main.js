@@ -5,6 +5,20 @@ const inputAdicionar = containerAdicionar.querySelector('input')
 const containerTarefas = document.querySelector('.tarefas')
 const templateTarefas = containerTarefas.querySelector('template')
 
+function salvarTarefas() {
+    const nodeListTarefas = containerTarefas.querySelectorAll(':scope > .tarefa span');
+    const arrayTarefas = Array.from(nodeListTarefas).map((el) => el.textContent)
+    const stringTarefas = JSON.stringify(arrayTarefas)
+    localStorage.setItem('tarefas', stringTarefas)
+}
+
+function carregarTarefas() {
+    const stringTarefas = localStorage.getItem('tarefas')
+    const arrayTarefas = JSON.parse(stringTarefas) || []
+    arrayTarefas.forEach(elTxt => criarTarefa(elTxt))
+}
+carregarTarefas()
+
 function criarTarefa(texto) {
 
     if (texto.trim() === '') return
@@ -12,10 +26,16 @@ function criarTarefa(texto) {
     const tarefa = templateTarefas.content.cloneNode(true)
     const spanTitle = tarefa.querySelector('span')
     const btnExcluir = tarefa.querySelector('button')
-    spanTitle.textContent = texto
-    containerTarefas.appendChild(tarefa)
 
-    btnExcluir.addEventListener('click'), () => btnExcluir.closest('tarefa'.remove())}
+    spanTitle.textContent = texto
+    btnExcluir.addEventListener('click', () => {
+        btnExcluir.closest('.tarefa').remove()
+        salvarTarefas()
+    })
+
+    containerTarefas.appendChild(tarefa)
+    salvarTarefas()
+}
 
 
 btnAdicionar.addEventListener('click', () => {
@@ -44,5 +64,7 @@ pegue os fiote tbm
         organizado
 
 Event Listener permite com que mais de um evento aconteça, o onclick só dá um :thumbs_up:
+
+map é tipo um for; recebe uma função, e a executa para cada nó do array (so funciona coma array)
     
         --  fim de notes -- */
