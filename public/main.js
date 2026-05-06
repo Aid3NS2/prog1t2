@@ -56,7 +56,7 @@ HTML --> DOM (Document Object Model). Por isso tem o "document"
 ao procurar algo. 
 
 CloneNode pega apenas o primeiro bagui. (true) faz com q ele
-pegue os fiote tbm
+pega os fiote tbm
 
  >> funcion criarTarefas
         poderia fazer tarefa.querySelector('span').textContent = texto
