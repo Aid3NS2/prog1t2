@@ -8,7 +8,7 @@ const server = Bun.serve({
     const file = Bun.file(filePath);
     const exists = await file.exists();
 
-    if (!exists())
+    if (!exists)
       return new Response("Not Found", { status: 404})
     return new Response(file);
   
